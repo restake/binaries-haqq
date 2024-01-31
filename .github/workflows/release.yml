@@ -33,7 +33,7 @@ jobs:
         name: "Install required system packages"
         run: |
           sudo apt-get update
-          sudo apt-get install -y --no-install-recommends build-essential curl git musl-dev
+          sudo apt-get install -y --no-install-recommends build-essential curl git
 
       - id: "clone-pipeline"
         name: "Clone pipeline"
@@ -65,7 +65,7 @@ jobs:
         run: |
           cd haqq
 
-          make CC="x86_64-linux-musl-gcc" CGO_LDFLAGS="-L." LEDGER_ENABLED=false build
+          make LEDGER_ENABLED=false build
 
           # Smoke test
           ldd ./build/haqqd || :
