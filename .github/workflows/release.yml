@@ -65,7 +65,7 @@ jobs:
         run: |
           cd haqq
 
-          make CC="x86_64-linux-musl-gcc" CGO_LDFLAGS="-L." LEDGER_ENABLED=false LINK_STATICALLY=true build
+          make CC="x86_64-linux-musl-gcc" CGO_LDFLAGS="-L." LEDGER_ENABLED=false build
 
           # Smoke test
           ldd ./build/haqqd || :
@@ -100,7 +100,7 @@ jobs:
           body: |
             For changes, see here: https://github.com/haqq-network/haqq/releases/tag/${{ env.HAQQ_VERSION }}
           files: |
-            binaries/dymd
+            binaries/haqqd
           tag_name: "${{ env.HAQQ_VERSION }}"
           draft: false
           prerelease: false
